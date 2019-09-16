@@ -78,7 +78,7 @@ vertical-align的百分比是相对于当前元素的line-height值来计算的
 ## constructor
 constructor 属性是专门为 function 而设计的，它存在于每一个function 的prototype 属性中。这个constructor 保存了指向 function 的一个引用
 
-## promise generator async/awit
+## promise generator async/await
 1. async是generator的语法糖，*替换成async，yield替换成await
 2. 多个await不存在继发关系可以同时触发，在async外定义后在async函数中用一个await后跟promise.all()同时触发
 3. 解决回调地狱，使用更语义化、便捷
@@ -160,7 +160,7 @@ Object.create = function(Base){
 ```
 var o = {};
 o.__proto__ = Base.prototype;
-Base.call(o);
+return Base.call(o);
 ```
 ## 原型链继承
 利用原型让一个对象继承另一个对象的属性和方法
@@ -437,3 +437,10 @@ viewport是固定的：
 ```
 高度定死，宽度自适应，元素都采用px做单位
 3.rem布局
+
+## 值类型和引用类型在传递时候的差别
+内存大致分为栈内存和堆内存
+
+值类型（变量）存储在栈内存中
+
+引用类型存储在堆内存中，定义一个对象表示，该变量在栈内存中存储的是指向堆中对象的地址
